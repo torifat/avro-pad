@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Clear Fix */
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+/* Clearfix end */
+
+html, body {
+  height: 100%;
+  font: 20px/30px Georgia, Times, "Times New Roman", serif;
+}
+
+#wrapper {
+  height: 100%;
+  background: url('../images/bg.jpg') #fbfbfb;
+}
+
+header, footer {
+  background: url('../images/black-bg.jpg') #1f1f1f;
+}
+
+main {
+  width: 100%;
+}
+
+/* Desktop */
+@media all and (min-width: 481px) {
+  #wrapper {
+    overflow: hidden;
+  }
+
+  main {
+    height: 100%;
+  }
+
+  header, main, footer {
+    float: left;
+  }
+
+  header {
+    left: 100px;
+    margin-left: -100px;
+    position: relative;
+    width: 100px;
+    height: auto !important;
+    min-height: 100%;
+  }
+
+  main .content {
+    padding: 20px;
+    margin: 0 260px 0 100px;
+  }
+
+  footer {
+    right: 260px;
+    margin-right: -260px;
+    position: relative;
+    width: 260px;
+    height: auto !important;
+    min-height: 100%;
+  }
+}
+
+/* Mobile */
+@media all and (max-width: 480px) {
+  header {
+    top: 80px;
+    margin-top: -80px;
+    position: relative;
+    height: 80px;
+    width: 100%;
+  }
+
+  main {
+    min-height: 100%;
+    margin-top: -80px;
+  }
+
+  main .content {
+    padding: 100px 0 200px 0;
+    margin: 80px 0 -180px 0;
+  }
+
+  footer {
+    height: 180px;
+    width: 100%;
+  }
+}
+
+main .content textarea {
+  font: 15px/25px Georgia, Times, "Times New Roman", serif;
+  background: transparent;
+  width: 100%;
+  border: 0;
+  resize: none;
+  outline: none;
+  overflow-y: scroll;
+}
+
+a.logo {
+  display: block;
+  background: url('../images/sprite.png') no-repeat;
+}
+
+header a.logo {
+  height: 80px;
+  width: 80px;
+  background-position: -20px 0px;
+}
+
+header a.logo:hover {
+  background-position: -20px -110px;
+}
+
+footer a.logo {
+  height: 80px;
+  width: 80px;
+  background-position: -20px 200px;
+}
