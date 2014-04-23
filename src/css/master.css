@@ -21,7 +21,7 @@
 
 html, body {
   height: 100%;
-  font: 20px/30px Georgia, Times, "Times New Roman", serif;
+  font: 20px/30px 'Ubuntu', 'sans-serif';
 }
 
 #wrapper {
@@ -43,35 +43,46 @@ main {
     overflow: hidden;
   }
 
-  main {
-    height: 100%;
-  }
-
   header, main, footer {
     float: left;
   }
 
   header {
-    left: 100px;
-    margin-left: -100px;
-    position: relative;
     width: 100px;
     height: auto !important;
     min-height: 100%;
   }
 
+  main {
+    height: 100%;
+    margin: 0 -260px 0 -100px;
+  }
+
   main .content {
-    padding: 20px;
-    margin: 0 260px 0 100px;
+    height: 100%;
+    margin: 0 280px 0 120px;
+    position: relative;
+  }
+
+  main .content textarea {
+    position: absolute;
+    background: red;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 20px;
   }
 
   footer {
-    right: 260px;
-    margin-right: -260px;
-    position: relative;
     width: 260px;
     height: auto !important;
     min-height: 100%;
+  }
+
+  footer .logo {
+    padding: 20px;
+    height: 40px;
+    background-position: 140px -200px;
   }
 }
 
@@ -91,7 +102,7 @@ main {
   }
 
   main .content {
-    padding: 100px 0 200px 0;
+    padding: 100px 20px 200px;
     margin: 80px 0 -180px 0;
   }
 
@@ -99,10 +110,16 @@ main {
     height: 180px;
     width: 100%;
   }
+
+  footer .logo {
+    padding: 20px;
+    height: 40px;
+    background-position: 140px -200px;
+  }
 }
 
 main .content textarea {
-  font: 15px/25px Georgia, Times, "Times New Roman", serif;
+  font: 15px/25px Ubuntu;
   background: transparent;
   width: 100%;
   border: 0;
@@ -111,23 +128,17 @@ main .content textarea {
   overflow-y: scroll;
 }
 
-a.logo {
+.logo {
   display: block;
   background: url('../images/sprite.png') no-repeat;
 }
 
-header a.logo {
+header .logo {
   height: 80px;
   width: 80px;
   background-position: -20px 0px;
 }
 
-header a.logo:hover {
+header .logo:hover {
   background-position: -20px -110px;
-}
-
-footer a.logo {
-  height: 80px;
-  width: 80px;
-  background-position: -20px 200px;
 }
