@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AvroPad</title>
-  <link rel="stylesheet" href="/css/master.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" charset="utf-8">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <div id="wrapper" class="cf">
-    <header>
+    <header class="mobile">
       <a class="logo" href="#"></a>
     </header>
     <main>
@@ -18,8 +18,35 @@
       </div>
     </main>
     <footer>
-      <span class="logo"></span>
+      <div class="wrapper">
+
+        <div class="desktop cf toggle">
+          <div class="label left">CONTROL</div>
+          <div class="label left normal">+</div>
+          <div class="label left">.</div>
+          <span class="switch right">
+            <input type="checkbox" id="state" checked="">
+            <label for="state" data-on="BN" data-off="EN"></label>
+          </span>
+        </div>
+
+        <div class="drafts">
+          <h2>Drafts</h2>
+          <ul>
+            <li>Draft 1</li>
+            <li class="active">Draft 2</li>
+            <li>Draft 3</li>
+            <li>Draft 4</li>
+            <li>Draft 5</li>
+          </ul>
+        </div>
+        <div class="logo"></div>
+      </div>
     </footer>
   </div>
+  <script src="jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="hammerjs/hammer.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery-hammerjs/jquery.hammer.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

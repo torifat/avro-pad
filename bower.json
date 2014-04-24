@@ -1,0 +1,14 @@
+{
+  "name": "AvroPad",
+  "version": "0.0.0",
+  "homepage": "https://github.com/torifat/avro-pad-markup",
+  "authors": [
+    "Rifat Nabi <to.rifat@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery-hammerjs": "~1.1.1",
+    "jquery": "~2.1.0"
+  }
+}
