@@ -292,3 +292,22 @@ input, textarea, select, button, label {
   padding: 5px 0;
   text-align: right;
 }
+
+/*atwho*/
+.atwho-view {
+  background: #1f1f1f;
+  color: #eee;
+}
+
+.atwho-view .cur {
+  background: #ffa544;
+  color: #1f1f1f;
+}
+
+.atwho-view ul li {
+  border-bottom-color: #333;
+}
+
+.atwho-view ul li:last-child {
+  border: none;
+}
