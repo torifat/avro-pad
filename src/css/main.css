@@ -42,7 +42,6 @@ html, body {
 }
 
 #wrapper {
-  height: 100%;
   background: #fbfbfb;
 }
 
@@ -62,6 +61,7 @@ footer .wrapper {
 /* Desktop */
 @media all and (min-width: 801px) {
   #wrapper {
+    height: 100%;
     overflow: hidden;
   }
 
