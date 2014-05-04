@@ -1,20 +1,34 @@
 'use strict';
 
-var res,
-    langbn = true,
-    avro = new AvroPhonetic(
-      function () {
-        if (localStorage.AvroCandidateSelection) {
-          return JSON.parse(localStorage.AvroCandidateSelection);
-        } else {
-          return {};
-        }
-      },
-      function (cS) {
-        console.log('Saving CandidateSelection', cS);
-        localStorage.AvroCandidateSelection = JSON.stringify(cS);
-      }
-    );
+var isBN, KEY_CODE, avro;
+
+isBN = true;
+
+KEY_CODE = {
+  DOWN: 40,
+  UP: 38,
+  ESC: 27,
+  TAB: 9,
+  ENTER: 13,
+  SPACE: 32,
+  CTRL: 17,
+  P: 80,
+  N: 78
+};
+
+avro = new AvroPhonetic(
+  function () {
+    if (localStorage.AvroCandidateSelection) {
+      return JSON.parse(localStorage.AvroCandidateSelection);
+    } else {
+      return {};
+    }
+  },
+  function (cS) {
+    console.log('Saving CandidateSelection', cS);
+    localStorage.AvroCandidateSelection = JSON.stringify(cS);
+  }
+);
 
 $(function () {
 
@@ -30,8 +44,8 @@ $(function () {
     callbacks: {
       //just match everything baby :3
       matcher: function (flag, subtext) {
-        if (!langbn) return null; // always return null when user selects english
-        res = subtext.match(/\s?([^\s]+)$/);
+        if (!isBN) return null; // always return null when user selects english
+        var res = subtext.match(/\s?([^\s]+)$/);
         // console.log(subtext, res);
         if (res == null) return null;
         var bnregex = /[\u0980-\u09FF]+$/;
@@ -74,6 +88,54 @@ $(function () {
       }
     }
   })
-  .focus();
+  .focus()
+  // Sorcery
+  .data('atwho').on_keydown = function (e) {
+    var view, _ref;
+    view = (_ref = this.controller()) != null ? _ref.view : void 0;
+    if (!(view && view.visible())) {
+      return;
+    }
+    switch (e.keyCode) {
+      case KEY_CODE.ESC:
+        e.preventDefault();
+        view.hide();
+        break;
+      case KEY_CODE.UP:
+        e.preventDefault();
+        view.prev();
+        break;
+      case KEY_CODE.DOWN:
+        e.preventDefault();
+        view.next();
+        break;
+      case KEY_CODE.P:
+        if (!e.ctrlKey) {
+          return;
+        }
+        e.preventDefault();
+        view.prev();
+        break;
+      case KEY_CODE.N:
+        if (!e.ctrlKey) {
+          return;
+        }
+        e.preventDefault();
+        view.next();
+        break;
+      case KEY_CODE.TAB:
+      case KEY_CODE.ENTER:
+      case KEY_CODE.SPACE:
+        if (!view.visible()) {
+          return;
+        }
+        e.preventDefault();
+        view.choose();
+        break;
+      default:
+        $.noop();
+    }
+  }
+  ;
 
 });
