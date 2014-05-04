@@ -1,5 +1,5 @@
-AvroPad Markup
-===============
+AvroPad
+=======
 
 ```bash
 $ npm install -g gulp
