@@ -97,7 +97,6 @@ $(function () {
       }
     }
   })
-  .focus()
   // Sorcery
   .data('atwho').on_keydown = function (e) {
     var view, _ref;
@@ -144,7 +143,6 @@ $(function () {
       default:
         $.noop();
     }
-  }
-  ;
+  };
 
 });

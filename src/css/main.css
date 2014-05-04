@@ -77,7 +77,7 @@ footer .wrapper {
   main .content {
     height: 100%;
     margin: 0 280px 0 20px;
-    overflow: scroll;
+    overflow-y: auto;
   }
 
   footer {
@@ -118,6 +118,21 @@ footer .wrapper {
 
   .desktop {
     display: none;
+  }
+
+  /* Candidate Window */
+  .atwho-view ul:before, .atwho-view ul:after {
+    content: "";
+    display: table;
+  }
+
+  .atwho-view ul:after {
+    clear: both;
+  }
+
+  .atwho-view ul li {
+    float: left;
+    border-right: 1px solid #333;
   }
 }
 
