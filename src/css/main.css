@@ -38,7 +38,7 @@ ul {
 
 html, body {
   height: 100%;
-  font: 14px/25px 'Ubuntu', 'sans-serif';
+  font: 14px/25px 'Nunito', 'sans-serif';
 }
 
 #wrapper {
@@ -130,7 +130,7 @@ footer .wrapper {
 }
 
 main .content textarea {
-  font: 15px/25px Ubuntu;
+  font: 15px/25px 'Nunito', 'sans-serif';
   background: transparent;
   width: 100%;
   border: 0;
