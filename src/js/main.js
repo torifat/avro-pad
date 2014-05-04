@@ -1,8 +1,10 @@
 'use strict';
 
-var isBN, KEY_CODE, avro;
-
-isBN = true;
+var KEY_CODE,
+    avro,
+    selectedIndex,
+    isBN = true,
+    selectedTpl = '<li class="cur" data-value="${name}">${name}</li>';
 
 KEY_CODE = {
   DOWN: 40,
@@ -25,7 +27,6 @@ avro = new AvroPhonetic(
     }
   },
   function (cS) {
-    console.log('Saving CandidateSelection', cS);
     localStorage.AvroCandidateSelection = JSON.stringify(cS);
   }
 );
@@ -38,9 +39,10 @@ $(function () {
   .atwho({
     at: '',
     data: {},
-    tpl: '<li data-value="${name}" data-select="${selected}">${name}</li>',
+    tpl: '<li data-value="${name}">${name}</li>',
     start_with_space: false,
     limit: 11,
+    highlight_first: false,
     callbacks: {
       //just match everything baby :3
       matcher: function (flag, subtext) {
@@ -58,16 +60,17 @@ $(function () {
         var bnarr = avro.suggest(query);
 
         bnarr.words = bnarr.words.slice(0,10);
-        if (avro.candidate(query) == query) {
+        if (avro.candidate(query) === query) {
           bnarr.prevSelection = bnarr.words.length;
         }
         bnarr.words.push(query);
         
+        selectedIndex = 0;
         return $.map(bnarr.words, function (value, i) {
+          if (i === bnarr.prevSelection) selectedIndex = i;
           return {
             id: i,
-            name: value,
-            selected: (i == bnarr.prevSelection)
+            name: value
           };
         });
       },
@@ -79,12 +82,18 @@ $(function () {
         }, 500);
         return value;
       },
-      // Next two callback will mess up suggestion list if not overriden.
       sorter: function (query, items, search_key) {
         return items;
       },
-      highlighter: function (li, query) {
-        return li;
+      tpl_eval: function (tpl, map) {
+        try {
+          if(selectedIndex === map.id) tpl = selectedTpl;
+          return tpl.replace(/\$\{([^\}]*)\}/g, function(tag, key, pos) {
+            return map[key];
+          });
+        } catch (error) {
+          return '';
+        }
       }
     }
   })
