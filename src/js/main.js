@@ -1,38 +1,52 @@
 'use strict';
 
-var KEY_CODE,
-    avro,
-    selectedIndex,
-    isBN = true,
-    selectedTpl = '<li class="cur" data-value="${name}">${name}</li>';
-
-KEY_CODE = {
-  DOWN: 40,
-  UP: 38,
-  ESC: 27,
-  TAB: 9,
-  ENTER: 13,
-  SPACE: 32,
-  CTRL: 17,
-  P: 80,
-  N: 78
-};
-
-avro = new AvroPhonetic(
-  function () {
-    if (localStorage.AvroCandidateSelection) {
-      return JSON.parse(localStorage.AvroCandidateSelection);
-    } else {
-      return {};
-    }
-  },
-  function (cS) {
-    localStorage.AvroCandidateSelection = JSON.stringify(cS);
-  }
-);
-
 $(function () {
+  
+  var KEY_CODE,
+      avro,
+      selectedIndex,
+      toggleLanguage,
+      $statusControl = $('#state'),
+      isBN = true,
+      selectedTpl = '<li class="cur" data-value="${name}">${name}</li>';
 
+  KEY_CODE = {
+    DOWN: 40,
+    UP: 38,
+    ESC: 27,
+    TAB: 9,
+    ENTER: 13,
+    SPACE: 32,
+    CTRL: 17,
+    P: 80,
+    N: 78
+  };
+
+  avro = new AvroPhonetic(
+    function () {
+      if (localStorage.AvroCandidateSelection) {
+        return JSON.parse(localStorage.AvroCandidateSelection);
+      } else {
+        return {};
+      }
+    },
+    function (cS) {
+      localStorage.AvroCandidateSelection = JSON.stringify(cS);
+    }
+  );
+  
+  toggleLanguage = function () {
+    isBN = !isBN;
+    $statusControl.prop('checked', isBN);
+  }
+  
+  $(document).on("keydown", function (e){
+    if(e.ctrlKey && [190,110].indexOf(e.keyCode) !== -1) {
+      e.preventDefault();
+      toggleLanguage();
+    }
+  });
+  
   $('textarea')
   .autosize()
   .prop('disabled', false)
