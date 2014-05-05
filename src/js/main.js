@@ -1,13 +1,26 @@
 'use strict';
 
 $(function () {
-  
+
   var KEY_CODE,
+      // AvroParser instance
       avro,
+      // Array of drafs
+      drafts = [],
+      // Candidate Window Selected Item Index
       selectedIndex,
       toggleLanguage,
+      fetchAllDrafts,
+      loadDraftId,
+      currentDraftId,
+      makeTitle,
+      $editor = $('textarea'),
       $statusControl = $('#state'),
+      $current,
       isBN = true,
+      // Length of draft title in chars
+      titleLength = 30,
+      LS = window.localStorage,
       selectedTpl = '<li class="cur" data-value="${name}">${name}</li>';
 
   KEY_CODE = {
@@ -24,22 +37,48 @@ $(function () {
 
   avro = new AvroPhonetic(
     function () {
-      if (localStorage.AvroCandidateSelection) {
-        return JSON.parse(localStorage.AvroCandidateSelection);
+      if (LS.AvroCandidateSelection) {
+        return JSON.parse(LS.AvroCandidateSelection);
       } else {
         return {};
       }
     },
     function (cS) {
-      localStorage.AvroCandidateSelection = JSON.stringify(cS);
+      LS.AvroCandidateSelection = JSON.stringify(cS);
     }
   );
-  
+
+  // Functions
   toggleLanguage = function () {
     isBN = !isBN;
     $statusControl.prop('checked', isBN);
-  }
-  
+  };
+
+  fetchAllDrafts = function () {
+    $('.drafts ul li a').each(function (index) {
+      var data = '';
+      if (LS['draft-' + index]) {
+        data = JSON.parse(LS['draft-' + index]);
+      }
+      drafts[index] = data;
+      $(this).text(makeTitle(data || 'Draft ' + (index + 1)));
+    });
+  };
+
+  makeTitle = function (content) {
+    if (content.length <= titleLength) return content;
+    if (content[titleLength] === ' ') {
+      return content.substring(0, titleLength);
+    } else {
+      var pos = content.lastIndexOf(' ', titleLength);
+      return content.substring(0, pos);
+    }
+  };
+
+  loadDraftId = function (id) {
+    $editor.val(drafts[id]);
+  };
+
   // Event Handlers
   $(document).on('keydown', function (e){
     if(e.ctrlKey && [190,110].indexOf(e.keyCode) !== -1) {
@@ -52,8 +91,23 @@ $(function () {
     isBN = $(this).is(':checked');
   });
 
+  $('.drafts ul').on('click', 'li', function (e) {
+    e.preventDefault();
+    $('.drafts ul li.active').removeClass('active');
+    $(this).addClass('active');
+    $current = $(this).find('a');
+
+    currentDraftId = $(this).index();
+    loadDraftId(currentDraftId);
+  });
+
+  // Init
+  fetchAllDrafts();
+  // Load the first draft
+  $('.drafts ul li:first a').trigger('click');
+
   // The TextArea
-  $('textarea')
+  $editor
   .autosize()
   .prop('disabled', false)
   .atwho({
@@ -84,7 +138,7 @@ $(function () {
           bnarr.prevSelection = bnarr.words.length;
         }
         bnarr.words.push(query);
-        
+
         selectedIndex = 0;
         return $.map(bnarr.words, function (value, i) {
           if (i === bnarr.prevSelection) selectedIndex = i;
@@ -117,6 +171,13 @@ $(function () {
       }
     }
   })
+  // Auto Save Draft
+  // inserted.atwho
+  .on('keyup', $.debounce(1000, false, function () {
+    var content = $editor.val();
+    LS['draft-' + currentDraftId] = JSON.stringify(content);
+    $current.text(makeTitle(content || 'Draft ' + (currentDraftId + 1)));
+  }))
   // Sorcery
   .data('atwho').on_keydown = function (e) {
     var view, _ref;
