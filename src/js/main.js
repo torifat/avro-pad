@@ -40,13 +40,19 @@ $(function () {
     $statusControl.prop('checked', isBN);
   }
   
-  $(document).on("keydown", function (e){
+  // Event Handlers
+  $(document).on('keydown', function (e){
     if(e.ctrlKey && [190,110].indexOf(e.keyCode) !== -1) {
       e.preventDefault();
       toggleLanguage();
     }
   });
-  
+
+  $statusControl.on('change', function () {
+    isBN = $(this).is(':checked');
+  });
+
+  // The TextArea
   $('textarea')
   .autosize()
   .prop('disabled', false)
