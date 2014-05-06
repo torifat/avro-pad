@@ -173,11 +173,12 @@ $(function () {
   })
   // Auto Save Draft
   // inserted.atwho
-  .on('keyup', $.debounce(1000, false, function () {
+  .on('keyup', function () {
     var content = $editor.val();
+    drafts[currentDraftId] = content;
     LS['draft-' + currentDraftId] = JSON.stringify(content);
     $current.text(makeTitle(content || 'Draft ' + (currentDraftId + 1)));
-  }))
+  })
   // Sorcery
   .data('atwho').on_keydown = function (e) {
     var view, _ref;
