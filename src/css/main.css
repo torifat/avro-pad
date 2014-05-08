@@ -308,6 +308,7 @@ input, textarea, select, button, label {
 
 .atwho-view ul li {
   border-bottom-color: #333;
+  -webkit-tap-highlight-color: #ffa544;
 }
 
 .atwho-view ul li strong {
@@ -329,11 +330,13 @@ input, textarea, select, button, label {
 
 .swipe div {
   font-size: 17px;
-  background: -webkit-gradient(linear,left top,right top,color-stop(0.1, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(0.9, #4d4d4d));
+  background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(0.9, #4d4d4d));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-animation: slidetounlock 5s infinite;
-  padding: 0;
+  /* dirty animation fix*/
+  padding-left: 60px;
+  margin-left: -60px;
   width: 200%;
   cursor: default;
   -webkit-user-select: none;
