@@ -226,4 +226,8 @@ $(function () {
     }
   };
 
+  $('.content').on('click', function () {
+    $editor.focus();
+  });
+
 });

@@ -43,9 +43,10 @@ html, body {
 
 #wrapper {
   background: #fbfbfb;
+  height: 100%;
 }
 
-header, footer {
+footer {
   color: #eee;
   background: #1f1f1f;
 }
@@ -61,7 +62,6 @@ footer .wrapper {
 /* Desktop */
 @media all and (min-width: 801px) {
   #wrapper {
-    height: 100%;
     overflow: hidden;
   }
 
@@ -78,6 +78,7 @@ footer .wrapper {
     height: 100%;
     margin: 0 280px 0 20px;
     overflow-y: auto;
+    cursor: text;
   }
 
   footer {
@@ -93,26 +94,23 @@ footer .wrapper {
 
 /* Mobile */
 @media all and (max-width: 800px) {
-  header {
-    top: 80px;
-    margin-top: -80px;
+  #wrapper {
     position: relative;
-    height: 80px;
-    width: 100%;
+    height: auto !important;
+    min-height: 100%;
   }
 
   main {
     min-height: 100%;
-    margin-top: -80px;
   }
 
   main .content {
-    padding: 80px 20px 180px;
-    margin: 80px 0 -180px;
+    padding: 0px 20px 327px;
   }
 
   footer {
-    min-height: 180px;
+    position: absolute;
+    bottom: 0;
     width: 100%;
   }
 
@@ -144,18 +142,7 @@ main .content textarea {
   resize: none;
   outline: none;
   padding: 20px 0;
-}
-
-header .logo {
-  display: block;
-  height: 80px;
-  width: 80px;
-  background: url('../images/sprite.png') no-repeat;
-  background-position: -20px 0px;
-}
-
-header .logo:hover {
-  background-position: -20px -110px;
+  min-height: 200px;
 }
 
 footer .logo {
