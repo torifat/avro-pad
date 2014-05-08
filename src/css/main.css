@@ -38,7 +38,7 @@ ul {
 
 html, body {
   height: 100%;
-  font: 14px/25px 'Nunito', 'sans-serif';
+  font: 14px/25px 'Avenir', 'Arial', 'sans-serif';
 }
 
 #wrapper {
@@ -135,7 +135,7 @@ footer .wrapper {
 }
 
 main .content textarea {
-  font: 15px/25px 'Nunito', 'sans-serif';
+  font: 15px/25px 'Avenir', 'Arial', 'sans-serif';
   background: transparent;
   width: 100%;
   border: 0;
@@ -155,6 +155,7 @@ footer .logo {
 
 footer h2 {
   font-size: 15px;
+  font-weight: 600;
   text-transform: uppercase;
   border-bottom: 1px solid #333;
   padding-bottom: 5px;
@@ -295,6 +296,9 @@ input, textarea, select, button, label {
 
 .atwho-view .cur {
   background: #ffa544;
+}
+
+.atwho-view .cur a {
   color: #1f1f1f;
 }
 
@@ -306,6 +310,9 @@ input, textarea, select, button, label {
   border-bottom-color: #333;
 }
 
+.atwho-view ul li strong {
+  font-weight: normal;
+}
 .atwho-view ul li:last-child {
   border: none;
 }
@@ -317,25 +324,27 @@ input, textarea, select, button, label {
 /* Swipe */
 .swipe {
   overflow: hidden;
-  width: 200px;
+  width: 220px;
 }
 
 .swipe div {
   font-size: 17px;
-  line-height: 25px;
-  background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+  background: -webkit-gradient(linear,left top,right top,color-stop(0.1, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(0.9, #4d4d4d));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-animation: slidetounlock 5s infinite;
   padding: 0;
   width: 200%;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @-webkit-keyframes slidetounlock {
   0% {
-    background-position: -200px 0;
+    background-position: -220px 0;
   }
   100% {
-    background-position: 200px 0;
+    background-position: 220px 0;
   }
 }

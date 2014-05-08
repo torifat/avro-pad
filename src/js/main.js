@@ -21,7 +21,7 @@ $(function () {
       // Length of draft title in chars
       titleLength = 25,
       LS = window.localStorage,
-      selectedTpl = '<li class="cur" data-value="${name}">${name}</li>';
+      selectedTpl = '<li class="cur" data-value="${name}"><a href="#">${name}</a></li>';
 
   KEY_CODE = {
     DOWN: 40,
