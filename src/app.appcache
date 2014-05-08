@@ -1,0 +1,12 @@
+CACHE MANIFEST
+# Updated: 09 May 2014
+# Version: 0.0.1
+
+CACHE:
+
+./
+images/apple-touch-icon.png
+images/apple-touch-startup-image.png
+images/logo-secondary.png
+js/app.min.js
+css/app.css
