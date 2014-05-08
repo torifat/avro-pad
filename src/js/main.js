@@ -123,7 +123,7 @@ $(function () {
   .atwho({
     at: '',
     data: {},
-    tpl: '<li data-value="${name}">${name}</li>',
+    tpl: '<li data-value="${name}"><a href="#">${name}</a></li>',
     start_with_space: false,
     limit: 11,
     highlight_first: false,

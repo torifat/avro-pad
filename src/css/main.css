@@ -105,7 +105,7 @@ footer .wrapper {
   }
 
   main .content {
-    padding: 0px 20px 327px;
+    padding: 0px 20px 412px;
   }
 
   footer {
@@ -308,4 +308,34 @@ input, textarea, select, button, label {
 
 .atwho-view ul li:last-child {
   border: none;
+}
+
+.atwho-view ul li a {
+  -webkit-tap-highlight-color: #ffa544;
+}
+
+/* Swipe */
+.swipe {
+  overflow: hidden;
+  width: 200px;
+}
+
+.swipe div {
+  font-size: 17px;
+  line-height: 25px;
+  background: -webkit-gradient(linear,left top,right top,color-stop(0, #4d4d4d),color-stop(0.4, #4d4d4d),color-stop(0.5, white),color-stop(0.6, #4d4d4d),color-stop(1, #4d4d4d));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: slidetounlock 5s infinite;
+  padding: 0;
+  width: 200%;
+}
+
+@-webkit-keyframes slidetounlock {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
 }
