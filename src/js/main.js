@@ -19,7 +19,7 @@ $(function () {
       $current,
       isBN = true,
       // Length of draft title in chars
-      titleLength = 30,
+      titleLength = 25,
       LS = window.localStorage,
       selectedTpl = '<li class="cur" data-value="${name}">${name}</li>';
 
@@ -61,17 +61,27 @@ $(function () {
         data = JSON.parse(LS['draft-' + index]);
       }
       drafts[index] = data;
-      $(this).text(makeTitle(data || 'Draft ' + (index + 1)));
+      $(this).text(makeTitle(data, index));
     });
   };
 
-  makeTitle = function (content) {
-    if (content.length <= titleLength) return content;
-    if (content[titleLength] === ' ') {
-      return content.substring(0, titleLength);
+  makeTitle = function (content, index) {
+    if (!!content){
+      content = content.trim().split('\n')[0];
     } else {
-      var pos = content.lastIndexOf(' ', titleLength);
-      return content.substring(0, pos);
+      content = '';
+    }
+
+    if (content && content.trim().length) {
+      if (content.length <= titleLength) return content;
+      if (content[titleLength] === ' ') {
+        return content.substring(0, titleLength);
+      } else {
+        var pos = content.lastIndexOf(' ', titleLength);
+        return content.substring(0, pos);
+      }
+    } else {
+      return 'Draft ' + (index + 1);
     }
   };
 
@@ -173,11 +183,12 @@ $(function () {
   })
   // Auto Save Draft
   // inserted.atwho
-  .on('keyup', $.debounce(1000, false, function () {
+  .on('keyup', function () {
     var content = $editor.val();
+    drafts[currentDraftId] = content;
     LS['draft-' + currentDraftId] = JSON.stringify(content);
-    $current.text(makeTitle(content || 'Draft ' + (currentDraftId + 1)));
-  }))
+    $current.text(makeTitle(content, currentDraftId));
+  })
   // Sorcery
   .data('atwho').on_keydown = function (e) {
     var view, _ref;
