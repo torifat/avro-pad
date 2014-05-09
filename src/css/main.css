@@ -55,6 +55,17 @@ main {
   width: 100%;
 }
 
+main .content textarea {
+  font: 15px/25px 'Avenir', 'Arial', 'sans-serif';
+  background: transparent;
+  width: 100%;
+  border: 0;
+  resize: none;
+  outline: none;
+  padding: 20px 0;
+  min-height: 200px;
+}
+
 footer .wrapper {
   padding: 20px;
 }
@@ -87,6 +98,10 @@ footer .wrapper {
     min-height: 100%;
   }
 
+  footer .toggle {
+    margin: 20px 0 40px;
+  }
+
   .mobile {
     display: none;
   }
@@ -105,13 +120,21 @@ footer .wrapper {
   }
 
   main .content {
-    padding: 0px 20px 412px;
+    padding: 0px 20px 422px;
+  }
+
+  main .content textarea {
+    padding-bottom: 0;
   }
 
   footer {
     position: absolute;
     bottom: 0;
     width: 100%;
+  }
+
+  footer .toggle {
+    margin: 10px 0 20px;
   }
 
   .desktop {
@@ -134,17 +157,6 @@ footer .wrapper {
   }
 }
 
-main .content textarea {
-  font: 15px/25px 'Avenir', 'Arial', 'sans-serif';
-  background: transparent;
-  width: 100%;
-  border: 0;
-  resize: none;
-  outline: none;
-  padding: 20px 0;
-  min-height: 200px;
-}
-
 footer .logo {
   background: url('../images/logo-secondary.png') no-repeat bottom right;
   margin-top: 20px;
@@ -160,10 +172,6 @@ footer h2 {
   border-bottom: 1px solid #333;
   padding-bottom: 5px;
   margin-bottom: 20px;
-}
-
-footer .toggle {
-  margin: 20px 0 40px;
 }
 
 footer ul li a {
