@@ -2,6 +2,9 @@
 
 $(function () {
 
+  $('#wrapper').show();
+  $('#loader').slideUp();
+
   var KEY_CODE,
       // AvroParser instance
       avro,
