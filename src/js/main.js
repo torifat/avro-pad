@@ -241,4 +241,18 @@ $(function () {
     $editor.focus();
   });
 
+  $.touchyOptions.useDelegation = true;
+
+
+  $('body').on('touchy-swipe', $.debounce(500, function (e, $target, data) {
+    if (data.direction === 'left' || data.direction === 'right') {
+      console.log('Swipe detected');
+      toggleLanguage();
+    }
+  }));
+
+  $('body').data('touchySwipe').settings.preventDefault.start = false;
+  $('body').data('touchySwipe').settings.preventDefault.move = false;
+  $('body').data('touchySwipe').settings.preventDefault.end = false;
+
 });
