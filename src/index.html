@@ -7,8 +7,10 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 	<title>AvroPad</title>
-	<link rel="stylesheet" href="jquery.atwho/dist/css/jquery.atwho.css" type="text/css" media="screen" charset="utf-8">
+	<!-- build:css css/app.css -->
+	<link rel="stylesheet" href="vendor/jquery.atwho/dist/css/jquery.atwho.css" type="text/css" media="screen" charset="utf-8">
 	<link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" charset="utf-8">
+	<!-- endbuild -->
 	<style type="text/css" media="screen">
 		#loader {
 			position: absolute;
@@ -258,13 +260,15 @@
 			</div>
 		</footer>
 	</div>
-	<script src="jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
-	<script src="Caret.js/src/jquery.caret.js" type="text/javascript" charset="utf-8"></script>
-	<script src="jquery.atwho/dist/js/jquery.atwho.js" type="text/javascript" charset="utf-8"></script>
-	<script src="jquery-autosize/jquery.autosize.js" type="text/javascript" charset="utf-8"></script>
-	<script src="jquery-throttle-debounce/jquery.ba-throttle-debounce.js" type="text/javascript" charset="utf-8"></script>
-	<script src="touchy/jquery.touchy.js" type="text/javascript" charset="utf-8"></script>
+	<!-- build:js js/app.js -->
+	<script src="vendor/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/Caret.js/src/jquery.caret.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/jquery.atwho/dist/js/jquery.atwho.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/jquery-autosize/jquery.autosize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vendor/touchy/jquery.touchy.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/avro.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<!-- endbuild -->
 </body>
 </html>
