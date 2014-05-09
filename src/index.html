@@ -10,8 +10,204 @@
 	<title>AvroPad</title>
 	<link rel="stylesheet" href="jquery.atwho/dist/css/jquery.atwho.css" type="text/css" media="screen" charset="utf-8">
 	<link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" charset="utf-8">
+	<style type="text/css" media="screen">
+		#loader {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: #1f1f1f;
+			z-index: 99;
+		}
+
+		#wrapper {
+			display: none;
+		}
+
+		#loader h1 {
+			font-family: 'Avenir', 'Arial', sans-serif;
+			color: #ffa544;
+			text-transform: uppercase;
+			font-size: 1em;
+			letter-spacing: 1.5px;
+			text-align: center;
+			width: 90px;
+			margin-top: 20px;
+			-webkit-animation: fade 3s infinite;
+		}
+
+		.container {
+			width: 110px;
+			padding-top: 200px;
+			margin: auto;
+			vertical-align: middle;
+		}
+
+		.ex {
+			font-family: 'Avenir', 'Arial', sans-serif;
+			color: #ffa544;
+			text-transform: uppercase;
+			font-size: 1em;
+			letter-spacing: 1.5px;
+			text-align: center;
+			width: 90px;
+			margin-top: 20px;
+			-webkit-animation: fade 3s infinite;
+			font-family: 'flamenco';
+			font-size: 4em;
+			width: 40px;
+			height: 40px;
+			margin-top: -17px;
+			display: inline-block;
+			border: 4px double #ffa544;
+		}
+
+		.ex:nth-child(1) {
+			-webkit-animation: spin1 3s infinite 1s;
+			-webkit-transform-origin: 50% 52%;
+			margin-left: 10px;
+		}
+
+		.ex:nth-child(2) {
+			-webkit-animation: spin2 3s infinite 1s;
+			-webkit-transform-origin: 50% 52%;
+			margin-left: -20px;
+		}
+
+		.ex:nth-child(3) {
+			-webkit-animation: spin2 3s infinite 1s;
+			-webkit-transform-origin: 50% 52%;
+			margin-left: 10px;
+		}
+
+		.ex:nth-child(4) {
+			margin-left: -1px;
+			-webkit-animation: spin1 3s infinite 1s;
+			-webkit-transform-origin: 50% 52%;
+			margin-left: -20px;
+		}
+
+		@-webkit-keyframes spin1 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@-moz-keyframes spin1 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@-o-keyframes spin1 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@keyframes spin1 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+		@-webkit-keyframes spin2 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(-360deg);
+			}
+		}
+		@-moz-keyframes spin2 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(-360deg);
+			}
+		}
+		@-o-keyframes spin2 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(-360deg);
+			}
+		}
+		@keyframes spin2 {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(-360deg);
+			}
+		}
+		@-webkit-keyframes fade {
+			50% {
+				opacity: 0.5;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+		@-moz-keyframes fade {
+			50% {
+				opacity: 0.5;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+		@-o-keyframes fade {
+			50% {
+				opacity: 0.5;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+		@keyframes fade {
+			50% {
+				opacity: 0.5;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+	</style>
 </head>
 <body>
+	<div id="loader">
+		<div class="container">
+			<div class="ex"></div>
+			<div class="ex"></div>
+			<div class="ex"></div>
+			<div class="ex"></div>
+			<h1>Loading...</h1>
+		</div>
+	</div>
 	<div id="wrapper" class="cf">
 		<main>
 			<div class="content">
