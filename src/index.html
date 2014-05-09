@@ -6,7 +6,6 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="mobile-web-app-capable" content="yes">
 	<link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
-	<link rel="apple-touch-startup-image" href="/images/apple-touch-startup-image.png"/>
 	<title>AvroPad</title>
 	<link rel="stylesheet" href="jquery.atwho/dist/css/jquery.atwho.css" type="text/css" media="screen" charset="utf-8">
 	<link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" charset="utf-8">
@@ -199,7 +198,7 @@
 	</style>
 </head>
 <body>
-	<div id="loader">
+	<div id="loader" style="display:none">
 		<div class="container">
 			<div class="ex"></div>
 			<div class="ex"></div>
@@ -208,6 +207,12 @@
 			<h1>Loading...</h1>
 		</div>
 	</div>
+	<script type="text/javascript" charset="utf-8">
+		setTimeout(function(){
+			var elem = document.getElementById("loader");
+			if (!!elem) elem.style.display = "block";
+		}, 1000);
+	</script>
 	<div id="wrapper" class="cf">
 		<main>
 			<div class="content">

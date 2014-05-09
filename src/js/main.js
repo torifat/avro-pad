@@ -3,7 +3,7 @@
 $(function () {
 
   $('#wrapper').show();
-  $('#loader').slideUp();
+  $('#loader').slideUp().remove();
 
   var KEY_CODE,
       // AvroParser instance

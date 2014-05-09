@@ -6,7 +6,6 @@ CACHE:
 
 ./
 images/apple-touch-icon.png
-images/apple-touch-startup-image.png
 images/logo-secondary.png
 js/app.min.js
 css/app.css
