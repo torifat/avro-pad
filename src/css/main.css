@@ -159,10 +159,18 @@ footer .wrapper {
 
 footer .logo {
   background: url('../images/logo-secondary.png') no-repeat bottom right;
-  margin-top: 20px;
+  margin-top: 10px;
   height: 40px;
-  padding-top: 20px;
+  padding-top: 10px;
   border-top: 1px solid #333;
+}
+
+footer .social {
+  text-align: right;
+  height: 32px;
+  margin: 10px 0;
+  border-top: 1px solid #333;
+  padding-top: 10px;
 }
 
 footer h2 {
@@ -184,6 +192,11 @@ footer ul li.active a {
   background: #ffa544;
   color: #1f1f1f;
   border-radius: 2px;
+}
+
+footer .social img {
+  height: 32px;
+  width: 32px;
 }
 
 /* Checkbox */
