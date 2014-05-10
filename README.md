@@ -4,16 +4,16 @@ Live: http://avro.im
 
 ---
 
-AvroPad is the full featured Avro Phonetic single page application with dictionary support. It runs locally on the browser, without requiring any server side processing and thus can be used offline without crippling its functionality.
+AvroPad is a full featured Avro Phonetic application with dictionary support. It runs locally on the browser, without requiring any server side processing and thus can be used offline without crippling its functionality.
 
 This project has been started by [Sarim](https://github.com/sarim) (who is also the maintainer of [ibus-avro](http://linux.omicronlab.com)). Since ibus-avro was written entirely in JavaScript, AvroPad was the first attempt to port that entire functionality to web.
 
-Yes, we know [Google Input Tools](http://www.google.com/inputtools/try/) is there and provides far superior suggestions with its machine learning capability. Yet AvroPad is there because:
+Yes, we know [Google Input Tools](http://www.google.com/inputtools/try/) is there and provides far superior suggestions with its machine learning capability. Yet AvroPad arrived, because:
 
 * It works offline.
 * It's fast and instant, there is no roundtrip delay for processing every word you type.
 * It's values privacy. Whatever you write or save in the drafts don't leave your browser unless you want them to.
-* It's open source. Google [deprecated their transliteration API service on May 26, 2011](https://developers.google.com/transliterate/), and it [may not be available after 3 years](https://developers.google.com/transliterate/terms) since the announcement. As a developer, you are free to integrate AvroPad in your application under the terms of MPL 1.1. We hate vendor locking as much as you do.
+* It's open source. Google [deprecated their transliteration API service on May 26, 2011](https://developers.google.com/transliterate/), and it [may not be available after 3 years](https://developers.google.com/transliterate/terms) since the announcement. As a developer you are free to integrate AvroPad in your application under the terms of MPL 1.1. We hate vendor locking as much as you do.
 
 ##Development
 
@@ -36,7 +36,7 @@ $ gulp watch
 
 Open [http://localhost:8080/](http://localhost:8080/) in your browser.
 
-[Chrome Livereload]([I'm an inline-style link](https://www.google.com) extension will also come in handy if you don't want to refresh your browser manually every time you change your code.
+[Chrome Livereload](https://www.google.com) extension will also come in handy if you don't want to refresh your browser manually every time you change the code.
 
 ##Build
 
@@ -50,11 +50,11 @@ This will minify assets and prepare the offline manifest file to deploy on produ
 $ gulp
 ```
 
-This `$ gulp` command alone will do the above and also start a server with the production ready application. Open [http://localhost:8888/](http://localhost:8888/) in your browser.
+This `$ gulp` command alone will do the above and also start a server with the production ready application. Open [http://localhost:8888/](http://localhost:8888/) in your browser to test.
 
 ##Browser support
 
-AvroPad has been tested with Chrome, Firefox, Safari, iOS Safari. We don't know what will happen on IE, let us know in our [forum](http://forum.omicronlab.com) or in [issues](https://github.com/torifat/avro-pad/issues) if you test that. But we don't promise IE support.
+AvroPad has been tested with Chrome, Firefox, Safari, iOS Safari. We don't know what will happen on IE, let us know in our [forum](http://forum.omicronlab.com) or in [issues](https://github.com/torifat/avro-pad/issues) if you test that, but right now we don't promise IE support.
 
 Android support is very minimal, because of the bugs in Chrome for Android:
 
