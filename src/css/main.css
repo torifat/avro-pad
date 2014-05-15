@@ -121,9 +121,9 @@ footer .wrapper {
   }
 
   main .content {
-    padding: 0px 20px 422px;
-    border-left: 2px solid #ffa544;
-    border-right: 2px solid #ffa544;
+    padding: 0px 10px 422px;
+    border-left: 3px solid #ffa544;
+    border-right: 3px solid #ffa544;
   }
 
   .sys main .content {
