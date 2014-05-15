@@ -255,7 +255,6 @@ $(function () {
 
   $('body').on('touchy-swipe', $.debounce(500, function (e, $target, data) {
     if (data.direction === 'left' || data.direction === 'right') {
-      console.log('Swipe detected');
       toggleLanguage();
     }
   }));
