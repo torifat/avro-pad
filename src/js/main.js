@@ -253,8 +253,13 @@ $(function () {
   $.touchyOptions.useDelegation = true;
 
 
-  $('body').on('touchy-swipe', $.debounce(500, function (e, $target, data) {
-    if (data.direction === 'left' || data.direction === 'right') {
+  $('body').on('touchy-swipe', $.debounce(250, function (e, $target, data) {
+
+    var passDir = data.direction === 'left' || data.direction === 'right',
+        deltaOne = Math.abs(data.lastMovePoint.y - data.movePoint.y),
+        deltaTwo = Math.abs(data.lastMovePoint.y - data.startPoint.y),
+        passTolerance = deltaOne < 2 && deltaTwo < 2;
+  if (passDir && passTolerance) {
       toggleLanguage();
     }
   }));
