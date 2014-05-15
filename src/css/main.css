@@ -121,10 +121,17 @@ footer .wrapper {
 
   main .content {
     padding: 0px 20px 422px;
+    border-left: 2px solid #ffa544;
+    border-right: 2px solid #ffa544;
+  }
+
+  .sys main .content {
+    border-color: #1f1f1f;
   }
 
   main .content textarea {
     padding-bottom: 0;
+    -webkit-tap-highlight-color: none;
   }
 
   footer {
