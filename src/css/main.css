@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-overflow-scrolling : touch;
 }
 
 a {
@@ -120,11 +121,18 @@ footer .wrapper {
   }
 
   main .content {
-    padding: 0px 20px 422px;
+    padding: 0px 10px 422px;
+    border-left: 3px solid #ffa544;
+    border-right: 3px solid #ffa544;
+  }
+
+  .sys main .content {
+    border-color: #1f1f1f;
   }
 
   main .content textarea {
     padding-bottom: 0;
+    -webkit-tap-highlight-color: none;
   }
 
   footer {
