@@ -8,7 +8,7 @@ AvroPad is a full featured Avro Phonetic application with dictionary support. It
 
 This project has been started by [Sarim](https://github.com/sarim) (who is also the maintainer of [ibus-avro](http://linux.omicronlab.com)). Since ibus-avro was written entirely in JavaScript, AvroPad was the first attempt to port that entire functionality to web.
 
-Yes, we know [Google Input Tools](http://www.google.com/inputtools/try/) is there and provides far superior suggestions with its machine learning capability. Yet AvroPad arrived, because:
+Yes, we know [Google Input Tools](http://www.google.com/inputtools/try/) is there and provides far superior suggestions with its machine learning capability. AvroPad doesn't aim to be a replacement of that, but it provides some interesting benefits:
 
 * It works offline.
 * It's fast and instant, there is no roundtrip delay for processing every word you type.
@@ -36,7 +36,7 @@ $ gulp watch
 
 Open [http://localhost:8080/](http://localhost:8080/) in your browser.
 
-[Chrome Livereload](https://www.google.com) extension will also come in handy if you don't want to refresh your browser manually every time you change the code.
+[Chrome Livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) extension will also come in handy if you don't want to refresh your browser manually every time you change the code.
 
 ##Build
 
@@ -64,11 +64,12 @@ Android support is very minimal, because of the bugs in Chrome for Android:
 
 And it's rare to have fixes on older Android releases, so old native Android browser probably will never be supported.
 
-##Credits
+##Contributors
 
 * Sarim Khan
 * Rifat Nabi
 * Mehdi Hasan
+* Tanbin Islam Siyam
 
 ##License
 
