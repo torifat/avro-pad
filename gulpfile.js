@@ -46,7 +46,7 @@ gulp.task('manifest', ['assets'], function(){
       preferOnline: true,
       network: ['http://*', 'https://*', '*'],
       filename: 'app.manifest',
-      exclude: 'app.manifest'
+      exclude: ['app.manifest', 'images/avroim_og.jpg']
      }))
     .pipe(gulp.dest(build));
 });
