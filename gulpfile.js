@@ -46,7 +46,7 @@ gulp.task('manifest', ['assets'], function(){
       preferOnline: true,
       network: ['http://*', 'https://*', '*'],
       filename: 'app.appcache',
-      exclude: ['app.appcache', 'images/avroim_og.jpg']
+      exclude: ['app.appcache', 'index.html', 'images/avroim_og.jpg']
      }))
     .pipe(gulp.dest(build));
 });
