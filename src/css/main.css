@@ -103,7 +103,7 @@ footer .wrapper {
     margin: 20px 0 40px;
   }
 
-  .mobile {
+  .mobile-only {
     display: none;
   }
 }
@@ -145,7 +145,7 @@ footer .wrapper {
     margin: 10px 0 20px;
   }
 
-  .desktop {
+  .desktop-only {
     display: none;
   }
 
