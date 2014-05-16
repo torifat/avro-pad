@@ -250,22 +250,12 @@ $(function () {
     $editor.focus();
   });
 
-  $.touchyOptions.useDelegation = true;
+  $.fn.swipe.defaults.excludedElements = 'label, button, input, select, a, .noSwipe';
 
-
-  $('body').on('touchy-swipe', $.debounce(250, function (e, $target, data) {
-
-    var passDir = data.direction === 'left' || data.direction === 'right',
-        deltaOne = Math.abs(data.lastMovePoint.y - data.movePoint.y),
-        deltaTwo = Math.abs(data.lastMovePoint.y - data.startPoint.y),
-        passTolerance = deltaOne < 2 && deltaTwo < 2;
-  if (passDir && passTolerance) {
-      toggleLanguage();
-    }
-  }));
-
-  $('body').data('touchySwipe').settings.preventDefault.start = false;
-  $('body').data('touchySwipe').settings.preventDefault.move = false;
-  $('body').data('touchySwipe').settings.preventDefault.end = false;
+  $('body').swipe({
+    swipeLeft: toggleLanguage,
+    swipeRight: toggleLanguage,
+    allowPageScroll: 'vertical'
+  });
 
 });

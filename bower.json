@@ -11,8 +11,7 @@
     "jquery": "~2.1.0",
     "jquery-autosize": "~1.18.7",
     "jquery.atwho": "~0.4.10",
-    "jquery-throttle-debounce": "*",
-    "touchy": "*",
+    "jquery-touchswipe": "~1.6.4",
     "device.js": "matthewhudson/device.js"
   }
 }
