@@ -165,6 +165,26 @@ footer .wrapper {
   }
 }
 
+/* Switch to horizontal mode in mobile & tablet regardless of screen size */
+.mobile .atwho-view ul:before,
+.mobile .atwho-view ul:after,
+.tablet .atwho-view ul:before,
+.tablet .atwho-view ul:after {
+  content: "";
+  display: table;
+}
+
+.mobile .atwho-view ul:after,
+.tablet .atwho-view ul:after {
+  clear: both;
+}
+
+.mobile .atwho-view ul li,
+.tablet .atwho-view ul li {
+  float: left;
+  border-right: 1px solid #333;
+}
+
 footer .logo {
   background: url('../images/logo-secondary.png') no-repeat bottom right;
   margin-top: 10px;
