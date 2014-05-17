@@ -52,16 +52,21 @@
 			font-size: 1em;
 			letter-spacing: 1.5px;
 			text-align: center;
-			width: 90px;
+			width: 200px;
 			margin-top: 20px;
 			-webkit-animation: fade 3s infinite;
 		}
 
 		.container {
-			width: 110px;
+			width: 220px;
 			padding-top: 200px;
 			margin: auto;
 			vertical-align: middle;
+		}
+
+		.anim-container {
+			margin: auto;
+			width: 110px;
 		}
 
 		.ex {
@@ -71,7 +76,7 @@
 			font-size: 1em;
 			letter-spacing: 1.5px;
 			text-align: center;
-			width: 90px;
+			width: 200px;
 			margin-top: 20px;
 			-webkit-animation: fade 3s infinite;
 			font-family: 'flamenco';
@@ -221,18 +226,20 @@
 <body>
 	<div id="loader" style="display:none">
 		<div class="container">
-			<div class="ex"></div>
-			<div class="ex"></div>
-			<div class="ex"></div>
-			<div class="ex"></div>
-			<h1>Loading...</h1>
+			<div class="anim-container">
+				<div class="ex"></div>
+				<div class="ex"></div>
+				<div class="ex"></div>
+				<div class="ex"></div>
+			</div>
+			<h1>Loading for the last Time...</h1>
 		</div>
 	</div>
 	<script>
 		setTimeout(function(){
 			var elem = document.getElementById("loader");
 			if (!!elem) elem.style.display = "block";
-		}, 1000);
+		}, 500);
 	</script>
 	<div id="wrapper" class="cf">
 		<main>
