@@ -2,11 +2,6 @@
 
 $(function () {
 
-  //Show incompatibily alert
-  if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/Opera Mini/i)){
-    alert('AvroPad has known incompatibility issues with your device or browser. It may not work as expected. We are sorry for the inconvenience.' + '\n' + '\n' + 'This is an open source project, so if you are a developer, please come forward and contribute :)');
-  }
-
   $('#wrapper').show();
   $('#loader').slideUp().remove();
 
@@ -42,6 +37,14 @@ $(function () {
     P: 80,
     N: 78
   };
+
+  //Show incompatibily alert
+  if (navigator.userAgent.match(/Android/i)){
+    if (!LS.browserWarning){
+      LS.browserWarning = 1;
+      alert('AvroPad may not work as expected due to some bugs of Android. Ask Google to get their things right.');
+    }
+  }
 
   avro = new AvroPhonetic(
     function () {
