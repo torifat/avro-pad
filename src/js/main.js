@@ -258,6 +258,7 @@ $(function () {
   $('body').swipe({
     swipeLeft: toggleLanguage,
     swipeRight: toggleLanguage,
+    fallbackToMouseEvents: false,
     allowPageScroll: 'vertical'
   });
 

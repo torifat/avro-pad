@@ -108,6 +108,14 @@ footer .wrapper {
   }
 }
 
+.desktop-only {
+  display: none;
+}
+
+.desktop .desktop-only {
+  display: block;
+}
+
 /* Mobile */
 @media all and (max-width: 800px) {
   #wrapper {
@@ -143,10 +151,6 @@ footer .wrapper {
 
   footer .toggle {
     margin: 10px 0 20px;
-  }
-
-  .desktop-only {
-    display: none;
   }
 
   /* Candidate Window */
@@ -373,8 +377,14 @@ input, textarea, select, button, label {
 
 /* Swipe */
 .swipe {
+  display: none;
   overflow: hidden;
   width: 220px;
+}
+
+.mobile .swipe,
+.tablet .swipe {
+  display: block;
 }
 
 .swipe div {
