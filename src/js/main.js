@@ -190,6 +190,16 @@ $(function () {
         } catch (error) {
           return '';
         }
+      },
+      before_reposition: function (offset) {
+        // Landscape Mode
+        if (device.mobile() || device.tablet() || $(window).width() <= 800) {
+          var cWinWidth = this.$el.find('.atwho-view').width();
+          if (offset.left + cWinWidth > $(window).width()) {
+            offset.left -= cWinWidth;
+          }
+        }
+        return offset;
       }
     }
   })
