@@ -190,6 +190,16 @@ $(function () {
         } catch (error) {
           return '';
         }
+      },
+      before_reposition: function (offset) {
+        // Landscape Mode
+        if (device.mobile() || device.tablet() || $(window).width() <= 800) {
+          var cWinWidth = this.$el.find('.atwho-view').width();
+          if (offset.left + cWinWidth > $(window).width()) {
+            offset.left -= cWinWidth;
+          }
+        }
+        return offset;
       }
     }
   })
@@ -261,5 +271,21 @@ $(function () {
     fallbackToMouseEvents: false,
     allowPageScroll: 'vertical'
   });
+
+  function handleAppCache() {
+    if (applicationCache == undefined) {
+      return;
+    }
+
+    if (applicationCache.status == applicationCache.UPDATEREADY) {
+      applicationCache.swapCache();
+      location.reload();
+      return;
+    }
+
+    applicationCache.addEventListener('updateready', handleAppCache, false);
+  }
+
+  handleAppCache();
 
 });
