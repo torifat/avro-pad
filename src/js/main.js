@@ -200,6 +200,7 @@ $(function () {
         // Landscape Mode
         if (isHorizontal()) {
           var winWidth = $(window).width(),
+              winHeight = $(window).innerHeight(),
               $view = this.view.$el;
 
           $view.css({
@@ -208,9 +209,9 @@ $(function () {
           });
           $view.offset({left: 0, top: offset.top});
 
-          var cWinWidth = $view.width();
+          var cWinWidth = $view.width(),
+              cWinHeight = $view.height();
 
-          console.log(offset.left, cWinWidth, winWidth);
           if (offset.left + cWinWidth > winWidth) {
             if (cWinWidth + 2 >= winWidth) {
               offset.left = 0;
@@ -223,6 +224,11 @@ $(function () {
               }
             }
           }
+
+          console.log(offset.top, cWinHeight, winHeight);
+          // if (offset.top + cWinHeight > winHeight){
+          //   offset.top = offset.top - cWinHeight - 100;
+          // }
         }
         return offset;
       }
