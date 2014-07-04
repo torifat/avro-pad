@@ -6,6 +6,7 @@ $(function () {
   $('#loader').slideUp().remove();
 
   var KEY_CODE,
+      isHorizontal,
       // AvroParser instance
       avro,
       // Array of drafs
@@ -44,6 +45,10 @@ $(function () {
       LS.browserWarning = 1;
       alert('AvroPad may not work as expected due to some bugs of Android. Ask Google to get their things right.');
     }
+  }
+
+  isHorizontal = function () {
+    return (device.mobile() || device.tablet() || $(window).width() <= 800);
   }
 
   avro = new AvroPhonetic(
@@ -193,10 +198,30 @@ $(function () {
       },
       before_reposition: function (offset) {
         // Landscape Mode
-        if (device.mobile() || device.tablet() || $(window).width() <= 800) {
-          var cWinWidth = this.$el.find('.atwho-view').width();
-          if (offset.left + cWinWidth > $(window).width()) {
-            offset.left -= cWinWidth;
+        if (isHorizontal()) {
+          var winWidth = $(window).width(),
+              $view = this.view.$el;
+
+          $view.css({
+            maxWidth: winWidth,
+            minWidth: 0
+          });
+          $view.offset({left: 0, top: offset.top});
+
+          var cWinWidth = $view.width();
+
+          console.log(offset.left, cWinWidth, winWidth);
+          if (offset.left + cWinWidth > winWidth) {
+            if (cWinWidth + 2 >= winWidth) {
+              offset.left = 0;
+            } else {
+              var left = offset.left - cWinWidth;
+              if (left >= 0) {
+                offset.left = left;
+              } else {
+                offset.left = 0;
+              }
+            }
           }
         }
         return offset;
