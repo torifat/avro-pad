@@ -25,6 +25,7 @@ $(function () {
       // Length of draft title in chars
       titleLength = 25,
       LS = window.localStorage,
+      runningEvent = 0,
       selectedTpl = '<li class="cur" data-value="${name}"><a href="#">${name}</a></li>';
 
   KEY_CODE = {
@@ -230,6 +231,7 @@ $(function () {
           //   offset.top = offset.top - cWinHeight - 100;
           // }
         }
+        console.log('--runningEvent', --runningEvent);
         return offset;
       }
     }
@@ -244,6 +246,8 @@ $(function () {
   })
   // Sorcery
   .data('atwho').on_keydown = function (e) {
+    console.log('++runningEvent', ++runningEvent);
+    
     var view, _ref;
     view = (_ref = this.controller()) != null ? _ref.view : void 0;
     if (!(view && view.visible())) {
@@ -279,11 +283,30 @@ $(function () {
       case KEY_CODE.TAB:
       case KEY_CODE.ENTER:
       case KEY_CODE.SPACE:
+        // This is not completed yet. Hitting space also ++ing the variable,
+        // so a dirty fix here.        
+        if (--runningEvent < 0) {
+          runningEvent = 0;
+        }
+        
         if (!view.visible()) {
           return;
         }
         e.preventDefault();
-        view.choose();
+        console.log('runningEvent', runningEvent);
+        
+        var that = this;
+        var chooseFunc = function() {
+          console.log('trying');
+          if (runningEvent < 1) {
+            console.log('commiting');
+            view.choose.call(view);
+          } else {
+            console.log('delaying');
+            setTimeout(chooseFunc, 50);            
+          }
+        }
+        chooseFunc();
         break;
       default:
         $.noop();
