@@ -231,7 +231,10 @@ $(function () {
           //   offset.top = offset.top - cWinHeight - 100;
           // }
         }
-        console.log('--runningEvent', --runningEvent);
+        if (--runningEvent < 0) {
+          runningEvent = 0;
+        }
+        console.log('--runningEvent', runningEvent);        
         return offset;
       }
     }
@@ -246,7 +249,9 @@ $(function () {
   })
   // Sorcery
   .data('atwho').on_keydown = function (e) {
-    console.log('++runningEvent', ++runningEvent);
+    if (e.keyCode >= 65 && e.keyCode <= 90 && !e.metaKey) {
+      console.log('++runningEvent', ++runningEvent);
+    }
     
     var view, _ref;
     view = (_ref = this.controller()) != null ? _ref.view : void 0;
@@ -283,11 +288,6 @@ $(function () {
       case KEY_CODE.TAB:
       case KEY_CODE.ENTER:
       case KEY_CODE.SPACE:
-        // This is not completed yet. Hitting space also ++ing the variable,
-        // so a dirty fix here.        
-        if (--runningEvent < 0) {
-          runningEvent = 0;
-        }
         
         if (!view.visible()) {
           return;
