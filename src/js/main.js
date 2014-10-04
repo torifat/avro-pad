@@ -105,6 +105,7 @@ $(function () {
 
   loadDraftId = function (id) {
     $editor.val(drafts[id]);
+    $editor.trigger('autosize.resize').focus();
   };
 
   // Event Handlers
@@ -246,6 +247,7 @@ $(function () {
     LS['draft-' + currentDraftId] = JSON.stringify(content);
     $current.text(makeTitle(content, currentDraftId));
   })
+  .focus()
   // Sorcery
   .data('atwho').on_keydown = function (e) {
     var extraKeys = [192,48,49,50,51,52,53,54,55,56,57,189,187,219,221,186,222,188,190,191,106,107,109,110,111,96,97,98,99,100,101,102,103,104,105];
