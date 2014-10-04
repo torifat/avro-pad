@@ -226,7 +226,7 @@ $(function () {
             }
           }
 
-          console.log(offset.top, cWinHeight, winHeight);
+          // console.log(offset.top, cWinHeight, winHeight);
           // if (offset.top + cWinHeight > winHeight){
           //   offset.top = offset.top - cWinHeight - 100;
           // }
@@ -234,7 +234,6 @@ $(function () {
         if (--runningEvent < 0) {
           runningEvent = 0;
         }
-        console.log('--runningEvent', runningEvent);        
         return offset;
       }
     }
@@ -251,7 +250,7 @@ $(function () {
   .data('atwho').on_keydown = function (e) {
     var extraKeys = [192,48,49,50,51,52,53,54,55,56,57,189,187,219,221,186,222,188,190,191,106,107,109,110,111,96,97,98,99,100,101,102,103,104,105];
     if (((e.keyCode >= 65 && e.keyCode <= 90) || extraKeys.indexOf(e.keyCode) !== -1 ) && !e.metaKey) {
-      console.log('++runningEvent', ++runningEvent);
+      ++runningEvent;
     }
     
     var view, _ref;
@@ -294,16 +293,15 @@ $(function () {
           return;
         }
         e.preventDefault();
-        console.log('runningEvent', runningEvent);
         
         var that = this;
         var chooseFunc = function() {
-          console.log('trying');
+          // trying commit
           if (runningEvent < 1) {
-            console.log('commiting');
+            // commit
             view.choose.call(view);
           } else {
-            console.log('delaying');
+            // delaying, still processing
             setTimeout(chooseFunc, 50);            
           }
         }
