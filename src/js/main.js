@@ -249,7 +249,8 @@ $(function () {
   })
   // Sorcery
   .data('atwho').on_keydown = function (e) {
-    if (e.keyCode >= 65 && e.keyCode <= 90 && !e.metaKey) {
+    var extraKeys = [192,48,49,50,51,52,53,54,55,56,57,189,187,219,221,186,222,188,190,191,106,107,109,110,111,96,97,98,99,100,101,102,103,104,105];
+    if (((e.keyCode >= 65 && e.keyCode <= 90) || extraKeys.indexOf(e.keyCode) !== -1 ) && !e.metaKey) {
       console.log('++runningEvent', ++runningEvent);
     }
     
