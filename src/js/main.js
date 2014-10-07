@@ -4,6 +4,11 @@ $(function () {
 
   $('#wrapper').show();
   $('#loader').slideUp().remove();
+    if(customDict) {
+        for (var i in customDict) {
+            store(i, customDict[i]);
+        }
+    }
 
   var KEY_CODE,
       isHorizontal,
@@ -26,6 +31,7 @@ $(function () {
       titleLength = 25,
       LS = window.localStorage,
       runningEvent = 0,
+      helpers,
       selectedTpl = '<li class="cur" data-value="${name}"><a href="#">${name}</a></li>';
 
   KEY_CODE = {
@@ -39,6 +45,16 @@ $(function () {
     P: 80,
     N: 78
   };
+
+    helpers = {
+        'tir':'টির',
+        'tar':'টার',
+        'ti':'টি',
+        'ta':'টা',
+        'tite':'টিতে',
+        'e': 'ে',
+        'er':'ের'
+    }
 
   //Show incompatibily alert
   if (navigator.userAgent.match(/Android/i)){
@@ -160,14 +176,18 @@ $(function () {
       },
       // main work is done here
       filter: function (query, data, search_key) {
-        // console.log(query, data, search_key);
+        //console.log(query, data, search_key);
         var bnarr = avro.suggest(query);
 
         bnarr.words = bnarr.words.slice(0,10);
+        var personalizedValue = store(query);
+        if(personalizedValue) bnarr.words.unshift(personalizedValue);
         if (avro.candidate(query) === query) {
           bnarr.prevSelection = bnarr.words.length;
         }
         bnarr.words.push(query);
+
+
 
         selectedIndex = 0;
         return $.map(bnarr.words, function (value, i) {
@@ -255,7 +275,7 @@ $(function () {
     if (((e.keyCode >= 65 && e.keyCode <= 90) || extraKeys.indexOf(e.keyCode) !== -1 ) && !e.metaKey) {
       ++runningEvent;
     }
-    
+
     var view, _ref;
     view = (_ref = this.controller()) != null ? _ref.view : void 0;
     if (!(view && view.visible())) {
@@ -291,12 +311,12 @@ $(function () {
       case KEY_CODE.TAB:
       case KEY_CODE.ENTER:
       case KEY_CODE.SPACE:
-        
+
         if (!view.visible()) {
           return;
         }
         e.preventDefault();
-        
+
         var that = this;
         var chooseFunc = function() {
           // trying commit
@@ -305,7 +325,7 @@ $(function () {
             view.choose.call(view);
           } else {
             // delaying, still processing
-            setTimeout(chooseFunc, 50);            
+            setTimeout(chooseFunc, 50);
           }
         }
         chooseFunc();
@@ -327,6 +347,18 @@ $(function () {
     fallbackToMouseEvents: false,
     allowPageScroll: 'vertical'
   });
+
+    $(".personalized").on("click","button.addnew",function(){
+       var peng = $("#peng").val();
+       var pbng = $("#pbng").val();
+        if(peng && pbng){
+            store(peng,pbng);
+            for(var i in helpers ){
+                store(peng+i,pbng+helpers[i]);
+            }
+            $("#peng, #pbng").val("");
+        }
+    });
 
   function handleAppCache() {
     if (applicationCache == undefined) {
