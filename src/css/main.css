@@ -352,11 +352,7 @@ input, textarea, select, button, label {
 }
 
 .atwho-view .cur a {
-  color: #1f1f1f;
-}
-
-.atwho-view strong {
-  color: #ffa544;
+  color: #1f1f1f !important;
 }
 
 .atwho-view ul li {
@@ -364,8 +360,8 @@ input, textarea, select, button, label {
   -webkit-tap-highlight-color: #ffa544;
 }
 
-.atwho-view ul li strong {
-  font-weight: normal;
+.atwho-view ul li:last-child a {
+  color: #ffa544;
 }
 .atwho-view ul li:last-child {
   border: none;

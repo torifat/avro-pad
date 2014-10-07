@@ -186,6 +186,9 @@ $(function () {
         }, 500);
         return value;
       },
+      highlighter: function(li, query) {
+        return li;
+      },
       sorter: function (query, items, search_key) {
         return items;
       },
