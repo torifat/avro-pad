@@ -4,6 +4,10 @@ Live: http://avro.im
 
 ---
 
+[![NPM Dev Dependencies](http://img.shields.io/david/dev/omicronlab/avro-pad.svg?style=flat-square)](https://david-dm.org/omicronlab/avro-pad#info=devDependencies&view=table)
+
+---
+
 AvroPad is a full featured Avro Phonetic application with dictionary support. It runs locally on the browser, without requiring any server side processing and thus can be used offline without crippling its functionality.
 
 This project has been started by [Sarim](https://github.com/sarim) (who is also the maintainer of [ibus-avro](http://linux.omicronlab.com)). Since ibus-avro was written entirely in JavaScript, AvroPad was the first attempt to port that entire functionality to web.

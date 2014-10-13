@@ -1,9 +1,9 @@
 {
   "name": "AvroPad",
   "version": "0.0.0",
-  "homepage": "https://github.com/torifat/avro-pad-markup",
+  "homepage": "http://avro.im/",
   "authors": [
-    "Rifat Nabi <to.rifat@gmail.com>"
+    "OmicronLab"
   ],
   "license": "MIT",
   "private": true,
