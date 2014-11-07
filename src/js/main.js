@@ -97,8 +97,7 @@ $(function () {
         return content.substring(0, titleLength);
       } else {
         var pos = content.lastIndexOf(' ', titleLength);
-        post = (pos > 0) ? pos : titleLength;
-        return content.substring(0, pos);
+        return (pos > 0) ? content.substring(0, pos) : content.substring(0, (titleLength)).concat(" ...");
       }
     } else {
       return 'Draft ' + (index + 1);
