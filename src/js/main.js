@@ -97,6 +97,7 @@ $(function () {
         return content.substring(0, titleLength);
       } else {
         var pos = content.lastIndexOf(' ', titleLength);
+        post = (pos > 0) ? pos : titleLength;
         return content.substring(0, pos);
       }
     } else {
