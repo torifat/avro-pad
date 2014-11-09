@@ -23,7 +23,7 @@ $(function () {
       $current,
       isBN = true,
       // Length of draft title in chars
-      titleLength = 25,
+      titleLength = 100,
       LS = window.localStorage,
       runningEvent = 0,
       selectedTpl = '<li class="cur" data-value="${name}"><a href="#">${name}</a></li>';
@@ -86,19 +86,7 @@ $(function () {
 
   makeTitle = function (content, index) {
     if (!!content){
-      content = content.trim().split('\n')[0];
-    } else {
-      content = '';
-    }
-
-    if (content && content.trim().length) {
-      if (content.length <= titleLength) return content;
-      if (content[titleLength] === ' ') {
-        return content.substring(0, titleLength);
-      } else {
-        var pos = content.lastIndexOf(' ', titleLength);
-        return (pos > 0) ? content.substring(0, pos) : content.substring(0, (titleLength)).concat(" ...");
-      }
+      return content.trim().split('\n')[0];
     } else {
       return 'Draft ' + (index + 1);
     }
