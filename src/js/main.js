@@ -86,7 +86,7 @@ $(function () {
 
   makeTitle = function (content, index) {
     if (!!content){
-      return content.trim().split('\n')[0];
+      return content.substr(0, titleLength);
     } else {
       return 'Draft ' + (index + 1);
     }
