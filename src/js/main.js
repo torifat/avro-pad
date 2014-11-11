@@ -85,8 +85,8 @@ $(function () {
   };
 
   makeTitle = function (content, index) {
-    if (!!content){
-      return content.substr(0, titleLength);
+    if (!!content && content.trim().length) {
+      return content.trim().substr(0, titleLength);
     } else {
       return 'Draft ' + (index + 1);
     }
