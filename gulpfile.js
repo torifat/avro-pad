@@ -35,8 +35,8 @@ gulp.task('server', function (next) {
   server(host, process.env.DEVPORT || 8080, src, next);
 });
 
-gulp.task('clean', function (next) {
-  del(build, next);
+gulp.task('clean', function () {
+  return del(build);
 });
 
 gulp.task('images', ['clean'], function () {
@@ -57,31 +57,28 @@ gulp.task('manifest', ['assets'], function (){
 });
 
 gulp.task('assets', ['clean', 'images'], function () {
-  var jsFilter     = filter('**/*.js'),
-      cssFilter    = filter('**/*.css'),
-      userefAssets = useref.assets();
+  var jsFilter     = filter(['**/*.js'], {restore: true}),
+      cssFilter    = filter(['**/*.css'], {restore: true});
 
   return gulp.src(src + '/*.html')
-    .pipe(userefAssets)
+    .pipe(useref())
     .pipe(jsFilter)
     .pipe(uglify())
     .pipe(filesize())
-    .pipe(jsFilter.restore())
+    .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe(minifyCss())
     .pipe(filesize())
-    .pipe(cssFilter.restore())
+    .pipe(cssFilter.restore)
     .pipe(rev())
-    .pipe(userefAssets.restore())
-    .pipe(useref())
     .pipe(revReplace())
     .pipe(gulp.dest(build));
 });
 
 gulp.task('watch', ['server'], function () {
-  var server = lr();
+  lr({ start: true });
   gulp.watch(src + '/**').on('change', function (file) {
-    server.changed(file.path);
+    lr.changed(file.path);
   });
 });
 
